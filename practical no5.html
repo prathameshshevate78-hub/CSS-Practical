@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS Form Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="myCtrl">
+
+    <h2>Registration Form</h2>
+
+    <form name="myForm" ng-submit="submitForm()" novalidate>
+
+        Name: 
+        <input type="text" name="name" ng-model="user.name" required>
+        <span ng-show="myForm.name.$touched && myForm.name.$invalid">
+            Name is required
+        </span>
+        <br><br>
+
+        Email: 
+        <input type="email" name="email" ng-model="user.email" required>
+        <span ng-show="myForm.email.$touched && myForm.email.$invalid">
+            Enter valid email
+        </span>
+        <br><br>
+
+        Password: 
+        <input type="password" name="password" ng-model="user.password" ng-minlength="6" required>
+        <span ng-show="myForm.password.$touched && myForm.password.$invalid">
+            Password must be at least 6 characters
+        </span>
+        <br><br>
+
+        Gender:
+        <input type="radio" ng-model="user.gender" value="Male"> Male
+        <input type="radio" ng-model="user.gender" value="Female"> Female
+        <br><br>
+
+        Course:
+        <select ng-model="user.course" required>
+            <option value="">Select</option>
+            <option>Computer</option>
+            <option>IT</option>
+            <option>Mechanical</option>
+        </select>
+        <br><br>
+
+        <button type="submit" ng-disabled="myForm.$invalid">Submit</button>
+
+    </form>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function($scope) {
+            $scope.user = {};
+
+            $scope.submitForm = function() {
+                alert("Form Submitted Successfully!");
+                console.log($scope.user); // shows data in console
+            };
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>MVC Example</title>
+
+    <!-- AngularJS Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="myCtrl">
+
+    <h2>Student Information</h2>
+
+    <!-- View (UI) -->
+    <p><b>Name:</b> {{student.name}}</p>
+    <p><b>Age:</b> {{student.age}}</p>
+    <p><b>Course:</b> {{student.course}}</p>
+
+    <hr>
+
+    <!-- Input to Update Model -->
+    Enter Name: <input type="text" ng-model="student.name"><br><br>
+    Enter Age: <input type="number" ng-model="student.age"><br><br>
+    Enter Course: <input type="text" ng-model="student.course">
+
+    <script>
+        // Module
+        var app = angular.module("myApp", []);
+
+        // Controller
+        app.controller("myCtrl", function($scope) {
+
+            // Model (Data)
+            $scope.student = {
+                name: "Prathamesh",
+                age: 20,
+                course: "Computer Science"
+            };
+
+        });
+    </script>
+
+</body>
+</html>

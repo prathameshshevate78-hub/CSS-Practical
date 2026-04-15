@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON Object Example</title>
+</head>
+<body>
+
+    <h2>Student Details using JSON</h2>
+
+    <script>
+        // Creating JSON Object
+        var student = {
+            "name": "Prathamesh Shevate",
+            "age": 20,
+            "course": "Computer Science",
+            "skills": ["HTML", "CSS", "JavaScript"]
+        };
+
+        // Displaying JSON data
+        document.write("<b>Name:</b> " + student.name + "<br>");
+        document.write("<b>Age:</b> " + student.age + "<br>");
+        document.write("<b>Course:</b> " + student.course + "<br>");
+        document.write("<b>Skills:</b> " + student.skills.join(", "));
+    </script>
+
+</body>
+</html>

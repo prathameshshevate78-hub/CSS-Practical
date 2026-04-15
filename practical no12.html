@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Combined AngularJS Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<center>
+
+    <!-- Parent & Child Controller -->
+    <div ng-controller="ParentCtrl">
+        <h3>Parent & Child Controller</h3>
+        <p>Parent Data: {{parentData}}</p>
+
+        <div ng-controller="ChildCtrl">
+            <p>Child Data: {{childData}}</p>
+            <p>Inherited from Parent: {{parentData}}</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Basic Controller -->
+    <div ng-controller="BasicCtrl">
+        <h3>Basic Controller</h3>
+        <h2>{{message}}</h2>
+        <button ng-click="greet()">Click Me</button>
+    </div>
+
+</center>
+
+<script>
+    var app = angular.module("myApp", []);
+
+    // Parent Controller
+    app.controller("ParentCtrl", function($scope){
+        $scope.parentData = "This is Parent Scope";
+    });
+
+    // Child Controller
+    app.controller("ChildCtrl", function($scope){
+        $scope.childData = "This is Child Scope";
+    });
+
+    // Basic Controller
+    app.controller("BasicCtrl", function($scope){
+        $scope.message = "Hello AngularJS!";
+        $scope.greet = function(){
+            alert("Welcome!");
+        };
+    });
+</script>
+
+</body>
+</html>
